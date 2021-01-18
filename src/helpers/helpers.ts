@@ -11,11 +11,7 @@ import FEATURE_STABILITY from '../data/feature_stability.json';
 export const getFeatureStabitityData = (
   _FEATURE_STABILITY: FeatureStabilityType,
 ) => {
-  const {
-    data: {
-      productionModelMetrics: { parameterStability },
-    },
-  } = _FEATURE_STABILITY;
+  const { parameterStability } = _FEATURE_STABILITY.data.productionModelMetrics;
   const parameterStabilityArr = Object.entries(parameterStability).map(
     ([name, data]) => {
       return {
@@ -44,11 +40,7 @@ export const getFeatureStabitityData = (
 export const getFeatureImportanceData = (
   _FEATURE_IMPRTANCE: FeatureImportanceType,
 ) => {
-  const {
-    data: {
-      featureImportance: { metrics },
-    },
-  } = _FEATURE_IMPRTANCE;
+  const { metrics } = _FEATURE_IMPRTANCE.data.featureImportance;
   const { names, importance } = metrics;
 
   return names.map((name, i) => {
