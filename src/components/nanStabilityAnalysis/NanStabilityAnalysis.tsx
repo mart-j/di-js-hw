@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Bar } from 'react-chartjs-2';
-import { ChartData } from '../../types';
+import { ChartData } from '../../types/types';
 import styles from './NanStabilityAnalysis.module.scss';
 
 
@@ -11,29 +11,19 @@ interface Props {
 const NanStabilityAnalysis: FC<Props> = ({ selectedPosition }) => {
 
   const distributionGraphState = {
+    labels: Object.keys(selectedPosition.nanStabilityAnalysis),
     datasets: [
       {
-        label: 'yBaseline',
-        backgroundColor: '#68a9ffeb',
-        data: selectedPosition.nanStabilityAnalysis.yBaseline,
-
+        backgroundColor: [ '#ec3929d4', '#dfed39c7'],
+        data: [selectedPosition.nanStabilityAnalysis.yBaseline[0],
+          selectedPosition.nanStabilityAnalysis.yProduction[0],
+        ],
       },
-      {
-        label: 'yProduction',
-        backgroundColor: '#fcff00b8',
-        data: selectedPosition.nanStabilityAnalysis.yProduction,
-
-
-      },
-
-
     ],
   };
 
   return (
         <div className={styles.chartWrapper}>
-            <div className={styles.buttonWrapper}>
-            </div>
             <Bar
                 data={distributionGraphState}
                 options={{
@@ -44,8 +34,7 @@ const NanStabilityAnalysis: FC<Props> = ({ selectedPosition }) => {
                     position: 'bottom',
                   },
                   legend: {
-                    display: true,
-                    position: 'right',
+                    display: false,
                   },
                 }}
             />

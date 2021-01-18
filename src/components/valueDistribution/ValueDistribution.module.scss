@@ -6,50 +6,94 @@
   padding: 20px 10px;
 }
 
-.switchButton {
-    cursor: pointer;
-    font-size: 14px;
-    padding: 6px 12px;
-    background-color: #4b99e8;
-    color: white;
-    outline: none;
-    border: none;
-    border-radius: 2px;
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.808);
-    transition: all .2s;
-    &:hover {
-        background-color: #2884e0;
-        color: rgb(243, 243, 243);
-    }
+.positionName {
+  background-color: #4b9ae849;
+  color: rgb(39, 39, 39);
+  margin: 0 10px;
+  font-size: 12px;
+  word-break: break-all;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 255, 0.164);
+}
 
+.switchButton {
+  cursor: pointer;
+  font-size: 14px;
+  padding: 6px 12px;
+  background-color: #4b99e8;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  transition: all 0.2s;
+  &:hover {
+    background-color: #2884e0;
+    color: rgb(243, 243, 243);
+  }
 }
 
 .buttonWrapper {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  
 }
 
+.navigator {
+  display: flex;
+  border-bottom: 2px solid #2884e0c7;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px 4px 0 0;
+  color: rgb(7, 16, 65);
+  padding: 0 5px;
+}
 
+.stability,
+.nanStability {
+  cursor: pointer;
+  padding: 2px 8px;
+border-radius: 2px;
+  color: rgb(80, 80, 80);
+  margin-bottom: 2px;
+  transition: all 0.2s;
+}
+
+.stability:hover,
+.nanStability:hover {
+  background-color: #4b9ae821;
+  color: rgb(109, 109, 109);
+}
+
+.navigator div:first-child {
+  margin-right: 10px;
+}
+
+.active {
+  background-color: #4b9ae8;
+  color: rgb(248, 248, 248);
+}
+
+.active:hover {
+  background-color: #4289cf;
+  color: white;
+}
 
 .closeButton {
-    position: absolute;
-    top: -12px;
-    right: -12px;
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-    border-radius: 50%;
-    background-color: rgb(255, 255, 255);
-    outline: none;
-    border: none;
-    color: rgba(0, 0, 0, 0.712);
-    transition: all .2s;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.555);
-    &:hover {
-        background-color:  rgba(0, 0, 0, 0.897);
-        color: rgb(243, 243, 243);
-       
-    }
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  outline: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.712);
+  transition: all 0.2s;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.555);
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.897);
+    color: rgb(243, 243, 243);
+  }
 }

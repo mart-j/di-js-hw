@@ -1,20 +1,15 @@
 import React, { FC } from 'react';
-import { HorizontalBar, defaults } from 'react-chartjs-2';
-import { ChartData } from '../../types';
+import { HorizontalBar } from 'react-chartjs-2';
+import { ChartData } from '../../types/types';
 import styles from './FeatureImportance.module.scss';
 
-defaults.global.defaultFontSize = 10;
-
 interface Props {
-  showGraphHandler: (index: number) => void;
+  showChartHandler: (index: number) => void;
   chartData: ChartData[];
-  showGraph: boolean;
+  showChart: boolean;
 }
 
-
-
-
-const FeatureDistribution: FC<Props> = ({ showGraphHandler, chartData, showGraph }) => {
+const FeatureDistribution: FC<Props> = ({ showChartHandler, chartData, showChart }) => {
   const horizontalState = {
     labels: chartData.map((item) => item.name),
     datasets: [
@@ -24,7 +19,7 @@ const FeatureDistribution: FC<Props> = ({ showGraphHandler, chartData, showGraph
           const backgroundColor: { [key: number]: string } = {
             1: '#0095ffcf',
             2: '#ffb100cf',
-            3: '#ff0000cf',
+            3: '#ff200094',
           };
           return backgroundColor[chartData[index].stabilityGroup];
         },
@@ -37,7 +32,7 @@ const FeatureDistribution: FC<Props> = ({ showGraphHandler, chartData, showGraph
     <div className={styles.featureImportanceWrapper}>
       <HorizontalBar
         data={horizontalState}
-        height={280}
+        height={300}
         options={{
           title: {
             display: true,
@@ -47,11 +42,14 @@ const FeatureDistribution: FC<Props> = ({ showGraphHandler, chartData, showGraph
           legend: {
             display: false,
           },
-
+          scales: {
+            yAxes: [{ ticks: { mirror: false, fontSize: 10, z: 2, fontColor: '#0f0f0ff0' } }],
+          },
+          
           onClick: (event: Event, element: { _index: number }[]) => {
             if (element[0]) {
               const index = element[0]._index;
-              showGraphHandler(index);
+              showChartHandler(index);
             }
           },
 
@@ -65,7 +63,7 @@ const FeatureDistribution: FC<Props> = ({ showGraphHandler, chartData, showGraph
           },
         }}
       />
-      {showGraph && <div className={styles.overlay}></div>}
+      {showChart && <div className={styles.overlay}></div>}
     </div>
   );
 };
