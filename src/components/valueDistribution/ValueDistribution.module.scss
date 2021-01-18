@@ -1,36 +1,22 @@
+@import '../../index.scss';
+
 .chartWrapper {
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.349);
+  background-color: $lightBackground;
+  box-shadow: $boxShadowCentered;
   margin: auto;
   border-radius: 5px;
   padding: 20px 10px;
 }
 
 .positionName {
-  background-color: #4b9ae849;
-  color: rgb(39, 39, 39);
+  background-color: $lightBlueBackground;
+  color: $textColorDark;
   margin: 0 10px;
   font-size: 12px;
   word-break: break-all;
   padding: 10px;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 255, 0.164);
-}
-
-.switchButton {
-  cursor: pointer;
-  font-size: 14px;
-  padding: 6px 12px;
-  background-color: #4b99e8;
-  color: white;
-  outline: none;
-  border: none;
-  border-radius: 2px;
-  transition: all 0.2s;
-  &:hover {
-    background-color: #2884e0;
-    color: rgb(243, 243, 243);
-  }
+  border-radius: $borderRadiusPrimary;
+  border: $bordeBlue;
 }
 
 .buttonWrapper {
@@ -38,13 +24,16 @@
   justify-content: space-between;
   margin-bottom: 10px;
 }
-
-.navigator {
+.navWrapper {
+  width: 100%;
   display: flex;
-  border-bottom: 2px solid #2884e0c7;
-  background-color: rgb(255, 255, 255);
-  border-radius: 4px 4px 0 0;
-  color: rgb(7, 16, 65);
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.nav {
+  display: flex;
+  border-bottom: $borderBottomBlue;
+  background-color: $lightBackground;
   padding: 0 5px;
 }
 
@@ -52,30 +41,27 @@
 .nanStability {
   cursor: pointer;
   padding: 2px 8px;
-border-radius: 2px;
-  color: rgb(80, 80, 80);
+  border-radius: 2px;
+  color: $textColor;
   margin-bottom: 2px;
   transition: all 0.2s;
+  &:hover {
+    background-color: #4b9ae821;
+    color: $textColorDark;
+  }
 }
 
-.stability:hover,
-.nanStability:hover {
-  background-color: #4b9ae821;
-  color: rgb(109, 109, 109);
-}
-
-.navigator div:first-child {
+.stability {
   margin-right: 10px;
 }
 
 .active {
-  background-color: #4b9ae8;
-  color: rgb(248, 248, 248);
-}
-
-.active:hover {
-  background-color: #4289cf;
-  color: white;
+  background-color: $darkBlueBackground;
+  color: $lightBackground;
+  &:hover {
+    background-color: #4289cf;
+    color: white;
+  }
 }
 
 .closeButton {
@@ -86,14 +72,14 @@ border-radius: 2px;
   height: 35px;
   cursor: pointer;
   border-radius: 50%;
-  background-color: rgb(255, 255, 255);
+  background-color: $lightBackground;
   outline: none;
   border: none;
-  color: rgba(0, 0, 0, 0.712);
+  color: $textColorDark;
   transition: all 0.2s;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.555);
+  box-shadow: $boxShadowCentered;
   &:hover {
     background-color: rgba(0, 0, 0, 0.897);
-    color: rgb(243, 243, 243);
+    color: $lightBackground;
   }
 }

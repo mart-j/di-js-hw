@@ -10,20 +10,18 @@ interface Props {
   closeChartHandler: () => void;
 }
 
-const ValueDistribution: FC<Props> = ({ selectedPosition, closeChartHandler }) => {
-
+const ValueDistribution: FC<Props> = ({
+  selectedPosition,
+  closeChartHandler,
+}) => {
   const [toggleChart, setToggleChart] = useState(false);
 
   return (
     <div className={styles.chartWrapper}>
-      <div>
-        <div className={styles.buttonWrapper}>
-          <div></div>
-          <div>
-
-            <div className={styles.navigator}>
+          <div className={styles.navWrapper}>
+            <div className={styles.nav}>
               <div
-              onClick={() => setToggleChart(false)}
+                onClick={() => setToggleChart(false)}
                 className={classNames({
                   [styles.stability]: true,
                   [styles.active]: !toggleChart,
@@ -31,8 +29,8 @@ const ValueDistribution: FC<Props> = ({ selectedPosition, closeChartHandler }) =
               >
                 Stability
               </div>
-               <div
-               onClick={() => setToggleChart(true)}
+              <div
+                onClick={() => setToggleChart(true)}
                 className={classNames({
                   [styles.stability]: true,
                   [styles.active]: toggleChart,
@@ -47,13 +45,10 @@ const ValueDistribution: FC<Props> = ({ selectedPosition, closeChartHandler }) =
               X
             </button>
           </div>
-        </div>
-      </div>
-
       {toggleChart ? (
         <NanStabilityAnalysis selectedPosition={selectedPosition} />
       ) : (
-          <StabilityAnalysis selectedPosition={selectedPosition} />
+        <StabilityAnalysis selectedPosition={selectedPosition} />
       )}
       <div className={styles.positionName}>{selectedPosition.name}</div>
     </div>

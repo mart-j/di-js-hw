@@ -1,5 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 import { Bar } from 'react-chartjs-2';
+import { SAOptions } from '../../chartOptions/chartOptions';
 import { ChartData } from '../../types/types';
 import styles from './StabilityAnalysis.module.scss';
 
@@ -10,7 +11,7 @@ interface Props {
 
 const StabilityAnalysis: FC<Props> = ({ selectedPosition }) => {
 
-  const distributionGraphState = {
+  const state = useRef({
     labels: selectedPosition.xLeftEdge,
     datasets: [
       {
@@ -24,29 +25,18 @@ const StabilityAnalysis: FC<Props> = ({ selectedPosition }) => {
         data: selectedPosition.yProduction,
       },
     ],
-  };
+  });
 
   return (
     <div className={styles.chartWrapper}>
       <div className={styles.psi}>
-       {`Population stability index: ${selectedPosition.psi.toFixed(2)}`}
+        {`Population stability index: ${selectedPosition.psi.toFixed(2)}`}
       </div>
       <div className={styles.buttonWrapper}>
       </div>
       <Bar
-        data={distributionGraphState}
-        options={{
-          title: {
-            display: true,
-            text: 'Stability Analysis',
-            fontSize: 20,
-            position: 'bottom',
-          },
-          legend: {
-            display: true,
-            position: 'right',
-          },
-        }}
+        data={state.current}
+        options={SAOptions}
       />
     </div>
   );

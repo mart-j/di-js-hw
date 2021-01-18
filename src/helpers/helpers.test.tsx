@@ -1,13 +1,11 @@
-import * as testVariable from './testVariables';
-import { getFeatureImportanceData, getFeatureStabitityData, mergeData } from './helpers';
-
-const {
+import {
   FI_TEST_DATA,
   FS_TEST_DATA,
   filteredFeatureImportance,
   filteredFeatureStability,
   mergedDataTest,
-} = testVariable;
+} from './mockData';
+import { getFeatureImportanceData, getFeatureStabitityData, mergeData } from './helpers';
 
 
 describe('FeatureImportanceData Test', () => {
