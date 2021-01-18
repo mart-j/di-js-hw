@@ -1,4 +1,4 @@
-@import '../../index.scss';
+@import '../../scssVariables/variables.scss';
 
 .chartWrapper {
   background-color: $lightBackground;
@@ -59,7 +59,7 @@
   background-color: $darkBlueBackground;
   color: $lightBackground;
   &:hover {
-    background-color: #4289cf;
+    background-color: $darkBlueHover;
     color: white;
   }
 }
